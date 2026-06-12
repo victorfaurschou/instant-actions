@@ -3,23 +3,27 @@
 	"id": "instant-actions",
 	"version": "${version}",
 	"name": "Instant Actions",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Adds toggles for performing repetitive actions instantly.",
 	"authors": [
-		"Me!"
+		"medicalwhiskey"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/instant-actions",
+		"sources": "https://github.com/victorfaurschou/instant-actions",
+		"issues": "https://github.com/victorfaurschou/instant-actions/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/instant-actions/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
 		"main": [
 			"com.victorfaurschou.instantactions.InstantActions"
 		],
 		"client": [
 			"com.victorfaurschou.instantactions.client.InstantActionsClient"
+		],
+		"modmenu": [
+			"com.victorfaurschou.instantactions.client.ModMenuIntegration"
 		]
 	},
 	"mixins": [
@@ -31,8 +35,10 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.19.3",
-		"minecraft": "~26.1.2",
+		"minecraft": "~26.1",
 		"java": ">=25",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"cloth-config": "*",
+		"modmenu": "*"
 	}
 }

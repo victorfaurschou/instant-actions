@@ -1,10 +1,8 @@
 {
 	"required": true,
-	"package": "com.victorfaurschou.instantactions.client.mixin",
+	"package": "com.victorfaurschou.instantactions.mixin.client",
 	"compatibilityLevel": "JAVA_25",
-	"client": [
-		"ExampleClientMixin"
-	],
+	"client": [],
 	"injectors": {
 		"defaultRequire": 1
 	},
