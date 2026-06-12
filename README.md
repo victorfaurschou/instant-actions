@@ -1,9 +1,13 @@
 # Instant Actions
 
-## Setup
+A mod with toggles for performing repetitive actions instantly.
 
-For setup instructions, please see the [Fabric Documentation page](https://docs.fabricmc.net/develop/getting-started/creating-a-project#setting-up) related to the IDE that you are using.
+Available on [Modrinth](https://modrinth.com/mod/instant-actions) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/instant-actions).
 
-## License
+## Dependencies
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+**Required**
+- [Fabric Loader](https://fabricmc.net/use/) ≥ 0.19.3
+- [Fabric API](https://modrinth.com/mod/fabric-api) ≥ 0.151.0+26.1.2
+- [Mod Menu](https://modrinth.com/mod/modmenu)
+- [Cloth Config](https://modrinth.com/mod/cloth-config)
