@@ -35,6 +35,8 @@ This is a **client-side mod**. It works in singleplayer and with the integrated 
 
 Each player controls their own toggles independently. If you host a world and enable a toggle, it applies only to you. Another player who joins with the mod installed uses their own toggle settings. Another player who joins without the mod is unaffected.
 
+Joining a world where the host doesn't have the mod will make it have no effect and a warning will be shown.
+
 The mod does not work on dedicated servers.
 
 ## 🔗 Dependencies
