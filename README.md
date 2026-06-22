@@ -27,6 +27,8 @@ Available on [Modrinth](https://modrinth.com/mod/instant-actions) and [CurseForg
 
 [![composter](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.1/.github/examples/composter.gif)](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.1/.github/examples/composter.gif)
 
+[![hunger](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.2/.github/examples/hunger.gif)](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.2/.github/examples/hunger.gif)
+
 and more...
 
 ## 📌 Notes
