@@ -31,7 +31,7 @@ public class ClothConfigScreen {
 		general.addEntry(entries
 			.startBooleanToggle(Component.literal("Bone Meal with Radius"), InstantActionsConfig.boneMealWithRadius)
 			.setDefaultValue(false)
-			.setTooltip(Component.literal("When bonemealing a crop, also apply bone meal to adjacent crops of the same type (cardinals + diagonals, 1 block away)."))
+			.setTooltip(Component.literal("When bonemealing a crop, also apply bone meal to adjacent crops of the same type."))
 			.setSaveConsumer(value -> InstantActionsConfig.boneMealWithRadius = value)
 			.build());
 
@@ -40,6 +40,13 @@ public class ClothConfigScreen {
 			.setDefaultValue(false)
 			.setTooltip(Component.literal("Breaking a fully-grown crop automatically harvests all connected crops of the same type within a 3-block radius."))
 			.setSaveConsumer(value -> InstantActionsConfig.chainHarvest = value)
+			.build());
+
+		general.addEntry(entries
+			.startBooleanToggle(Component.literal("Double Seeding"), InstantActionsConfig.doubleSeeding)
+			.setDefaultValue(false)
+			.setTooltip(Component.literal("Planting a crop also plants the same crop on any adjacent empty plantable blocks."))
+			.setSaveConsumer(value -> InstantActionsConfig.doubleSeeding = value)
 			.build());
 
 		general.addEntry(entries

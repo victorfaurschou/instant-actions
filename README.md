@@ -12,6 +12,7 @@ Available on [Modrinth](https://modrinth.com/mod/instant-actions) and [CurseForg
 * **Instant composting:** Fill a composter with a single click, consuming as much of the item as needed.
 * **Instant taming:** Tame any tameable animal (e.g. horse, wolf) on first attempt.
 * **Restore hunger instantly:** Consuming food uses as many of the same item as needed to fully restore hunger.
+* **Double seeding:** Planting a crop also plants the same item on adjacent empty plantable blocks.
 
 ## 📋 Usage
 
@@ -28,6 +29,8 @@ Available on [Modrinth](https://modrinth.com/mod/instant-actions) and [CurseForg
 [![composter](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.1/.github/examples/composter.gif)](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.1/.github/examples/composter.gif)
 
 [![hunger](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.2/.github/examples/hunger.gif)](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.2/.github/examples/hunger.gif)
+
+[![double seeding](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.2/.github/examples/double-seeding.gif)](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.2/.github/examples/double-seeding.gif)
 
 and more...
 

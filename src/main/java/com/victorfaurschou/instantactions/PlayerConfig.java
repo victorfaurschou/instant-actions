@@ -6,5 +6,6 @@ public record PlayerConfig(
 	boolean boneMealWithRadius,
 	boolean instantTaming,
 	boolean eatToFull,
-	boolean chainHarvest
+	boolean chainHarvest,
+	boolean doubleSeeding
 ) {}

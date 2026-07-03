@@ -14,7 +14,8 @@ public record ConfigSyncPayload(
 	boolean boneMealWithRadius,
 	boolean instantTaming,
 	boolean eatToFull,
-	boolean chainHarvest
+	boolean chainHarvest,
+	boolean doubleSeeding
 ) implements CustomPacketPayload {
 	public static final Type<ConfigSyncPayload> TYPE = new Type<>(
 		Identifier.parse(InstantActions.MOD_ID + ":config_sync")
@@ -27,11 +28,12 @@ public record ConfigSyncPayload(
 		ByteBufCodecs.BOOL, ConfigSyncPayload::instantTaming,
 		ByteBufCodecs.BOOL, ConfigSyncPayload::eatToFull,
 		ByteBufCodecs.BOOL, ConfigSyncPayload::chainHarvest,
+		ByteBufCodecs.BOOL, ConfigSyncPayload::doubleSeeding,
 		ConfigSyncPayload::new
 	);
 
 	public PlayerConfig toPlayerConfig() {
-		return new PlayerConfig(instantCompost, instantBoneMeal, boneMealWithRadius, instantTaming, eatToFull, chainHarvest);
+		return new PlayerConfig(instantCompost, instantBoneMeal, boneMealWithRadius, instantTaming, eatToFull, chainHarvest, doubleSeeding);
 	}
 
 	@Override
