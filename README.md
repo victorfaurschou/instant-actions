@@ -13,6 +13,7 @@ Available on [Modrinth](https://modrinth.com/mod/instant-actions) and [CurseForg
 * **Instant taming:** Tame any tameable animal (e.g. horse, wolf) on first attempt.
 * **Restore hunger instantly:** Consuming food uses as many of the same item as needed to fully restore hunger.
 * **Double seeding:** Planting a crop also plants the same item on adjacent empty plantable blocks.
+* **Double tilling:** Tilling a block also tills any adjacent tillable blocks.
 
 ## 📋 Usage
 
@@ -31,6 +32,8 @@ Available on [Modrinth](https://modrinth.com/mod/instant-actions) and [CurseForg
 [![hunger](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.2/.github/examples/hunger.gif)](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.2/.github/examples/hunger.gif)
 
 [![double seeding](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.2/.github/examples/double-seeding.gif)](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.2/.github/examples/double-seeding.gif)
+
+[![double tilling](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.2/.github/examples/double-tilling.gif)](https://raw.githubusercontent.com/victorfaurschou/instant-actions/26.2/.github/examples/double-tilling.gif)
 
 and more...
 

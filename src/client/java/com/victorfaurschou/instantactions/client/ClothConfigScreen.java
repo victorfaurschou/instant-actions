@@ -36,6 +36,13 @@ public class ClothConfigScreen {
 			.build());
 
 		general.addEntry(entries
+			.startBooleanToggle(Component.literal("Double Tilling"), InstantActionsConfig.doubleTilling)
+			.setDefaultValue(false)
+			.setTooltip(Component.literal("Tilling a block also tills any adjacent tillable blocks."))
+			.setSaveConsumer(value -> InstantActionsConfig.doubleTilling = value)
+			.build());
+
+		general.addEntry(entries
 			.startBooleanToggle(Component.literal("Chain Harvest"), InstantActionsConfig.chainHarvest)
 			.setDefaultValue(false)
 			.setTooltip(Component.literal("Breaking a fully-grown crop automatically harvests all connected crops of the same type within a 3-block radius."))

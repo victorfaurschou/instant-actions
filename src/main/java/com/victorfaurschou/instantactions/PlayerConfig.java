@@ -7,5 +7,6 @@ public record PlayerConfig(
 	boolean instantTaming,
 	boolean eatToFull,
 	boolean chainHarvest,
-	boolean doubleSeeding
+	boolean doubleSeeding,
+	boolean doubleTilling
 ) {}

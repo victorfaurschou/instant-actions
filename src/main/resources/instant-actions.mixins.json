@@ -8,6 +8,7 @@
 		"ComposterBlockMixin",
 		"CropBlockMixin",
 		"FoodPropertiesMixin",
+		"HoeItemMixin",
 		"RunAroundLikeCrazyGoalMixin",
 		"StemBlockMixin"
 	],
