@@ -15,7 +15,7 @@ Available on [Modrinth](https://modrinth.com/mod/instant-actions) and [CurseForg
 
 ## 📋 Usage
 
-1. Press `Esc`, go to **Mods**, find **Instant Actions**, click the **Settings** icon in the top right corner.
+1. Open the config screen via **Mod Menu**, or by running `/instant-actions config` in chat.
 2. Enable whatever toggles you want.
 3. Save to apply changes
 
@@ -47,8 +47,11 @@ The mod does not work on dedicated servers.
 
 - [Fabric Loader](https://fabricmc.net/use/)
 - [Fabric API](https://modrinth.com/mod/fabric-api)
-- [Mod Menu](https://modrinth.com/mod/modmenu)
 - [Cloth Config](https://modrinth.com/mod/cloth-config)
+
+### Optional
+
+- [Mod Menu](https://modrinth.com/mod/modmenu)
 
 ## 🏷️ Tags
 
