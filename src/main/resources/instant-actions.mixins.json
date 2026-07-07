@@ -5,12 +5,15 @@
 	"mixins": [
 		"BlockItemMixin",
 		"BoneMealItemMixin",
+		"CatMixin",
 		"ComposterBlockMixin",
 		"CropBlockMixin",
 		"FoodPropertiesMixin",
 		"HoeItemMixin",
+		"ParrotMixin",
 		"RunAroundLikeCrazyGoalMixin",
-		"StemBlockMixin"
+		"StemBlockMixin",
+		"WolfMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
