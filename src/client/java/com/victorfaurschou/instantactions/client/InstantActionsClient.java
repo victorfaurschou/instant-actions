@@ -54,7 +54,8 @@ public class InstantActionsClient implements ClientModInitializer {
 			InstantActionsConfig.eatToFull,
 			InstantActionsConfig.chainHarvest,
 			InstantActionsConfig.doubleSeeding,
-			InstantActionsConfig.doubleTilling
+			InstantActionsConfig.doubleTilling,
+			InstantActionsConfig.instantAnimalMaturing
 		));
 	}
 }

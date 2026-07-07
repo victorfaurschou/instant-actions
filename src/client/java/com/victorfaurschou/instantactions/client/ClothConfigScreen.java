@@ -77,6 +77,13 @@ public class ClothConfigScreen {
 			.setSaveConsumer(value -> InstantActionsConfig.eatToFull = value)
 			.build());
 
+		general.addEntry(entries
+			.startBooleanToggle(Component.literal("Instant Animal Maturing"), InstantActionsConfig.instantAnimalMaturing)
+			.setDefaultValue(false)
+			.setTooltip(Component.literal("Feeding a baby animal instantly matures it to an adult."))
+			.setSaveConsumer(value -> InstantActionsConfig.instantAnimalMaturing = value)
+			.build());
+
 		return builder.build();
 	}
 }

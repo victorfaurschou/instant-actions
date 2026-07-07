@@ -14,6 +14,7 @@ Available on [Modrinth](https://modrinth.com/mod/instant-actions) and [CurseForg
 * **Restore hunger instantly:** Consuming food uses as many of the same item as needed to fully restore hunger.
 * **Double seeding:** Planting a crop also plants the same item on adjacent empty plantable blocks.
 * **Double tilling:** Tilling a block also tills any adjacent tillable blocks.
+* **Instant animal maturing:** Feeding a baby animal instantly matures it to an adult.
 
 ## 📋 Usage
 

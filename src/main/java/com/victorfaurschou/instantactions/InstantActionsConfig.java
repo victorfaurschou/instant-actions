@@ -22,6 +22,7 @@ public class InstantActionsConfig {
 	public static boolean chainHarvest = false;
 	public static boolean doubleSeeding = false;
 	public static boolean doubleTilling = false;
+	public static boolean instantAnimalMaturing = false;
 
 	public static void load() {
 		if (!Files.exists(CONFIG_PATH)) return;
@@ -36,6 +37,7 @@ public class InstantActionsConfig {
 			chainHarvest = data.chainHarvest;
 			doubleSeeding = data.doubleSeeding;
 			doubleTilling = data.doubleTilling;
+			instantAnimalMaturing = data.instantAnimalMaturing;
 		} catch (IOException ignored) {}
 	}
 
@@ -50,6 +52,7 @@ public class InstantActionsConfig {
 			data.chainHarvest = chainHarvest;
 			data.doubleSeeding = doubleSeeding;
 			data.doubleTilling = doubleTilling;
+			data.instantAnimalMaturing = instantAnimalMaturing;
 			Files.writeString(CONFIG_PATH, GSON.toJson(data));
 		} catch (IOException ignored) {}
 	}
@@ -63,5 +66,6 @@ public class InstantActionsConfig {
 		boolean chainHarvest = false;
 		boolean doubleSeeding = false;
 		boolean doubleTilling = false;
+		boolean instantAnimalMaturing = false;
 	}
 }
