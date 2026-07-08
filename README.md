@@ -1,6 +1,6 @@
 # Instant Actions
 
-**Adds toggles that make common interactions faster and more convenient.**
+**Adds toggles to reduce or simplify repetitive gameplay mechanics, making common interactions quicker and less repetitive.**
 
 Available on [Modrinth](https://modrinth.com/mod/instant-actions) and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/instant-actions).
 
