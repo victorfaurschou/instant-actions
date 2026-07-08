@@ -9,35 +9,37 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 
 public record ConfigSyncPayload(
-	boolean instantCompost,
-	boolean instantBoneMeal,
-	boolean boneMealWithRadius,
-	boolean instantTaming,
-	boolean eatToFull,
-	boolean chainHarvest,
-	boolean doubleSeeding,
+	boolean enabled,
 	boolean doubleTilling,
-	boolean instantAnimalMaturing
+	boolean doubleSeeding,
+	boolean boneMealWithRadius,
+	boolean instantBoneMeal,
+	boolean chainHarvest,
+	boolean instantCompost,
+	boolean instantTaming,
+	boolean instantAnimalMaturing,
+	boolean eatToFull
 ) implements CustomPacketPayload {
 	public static final Type<ConfigSyncPayload> TYPE = new Type<>(
 		Identifier.parse(InstantActions.MOD_ID + ":config_sync")
 	);
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, ConfigSyncPayload> CODEC = StreamCodec.composite(
-		ByteBufCodecs.BOOL, ConfigSyncPayload::instantCompost,
-		ByteBufCodecs.BOOL, ConfigSyncPayload::instantBoneMeal,
-		ByteBufCodecs.BOOL, ConfigSyncPayload::boneMealWithRadius,
-		ByteBufCodecs.BOOL, ConfigSyncPayload::instantTaming,
-		ByteBufCodecs.BOOL, ConfigSyncPayload::eatToFull,
-		ByteBufCodecs.BOOL, ConfigSyncPayload::chainHarvest,
-		ByteBufCodecs.BOOL, ConfigSyncPayload::doubleSeeding,
+		ByteBufCodecs.BOOL, ConfigSyncPayload::enabled,
 		ByteBufCodecs.BOOL, ConfigSyncPayload::doubleTilling,
+		ByteBufCodecs.BOOL, ConfigSyncPayload::doubleSeeding,
+		ByteBufCodecs.BOOL, ConfigSyncPayload::boneMealWithRadius,
+		ByteBufCodecs.BOOL, ConfigSyncPayload::instantBoneMeal,
+		ByteBufCodecs.BOOL, ConfigSyncPayload::chainHarvest,
+		ByteBufCodecs.BOOL, ConfigSyncPayload::instantCompost,
+		ByteBufCodecs.BOOL, ConfigSyncPayload::instantTaming,
 		ByteBufCodecs.BOOL, ConfigSyncPayload::instantAnimalMaturing,
+		ByteBufCodecs.BOOL, ConfigSyncPayload::eatToFull,
 		ConfigSyncPayload::new
 	);
 
 	public PlayerConfig toPlayerConfig() {
-		return new PlayerConfig(instantCompost, instantBoneMeal, boneMealWithRadius, instantTaming, eatToFull, chainHarvest, doubleSeeding, doubleTilling, instantAnimalMaturing);
+		return new PlayerConfig(doubleTilling, doubleSeeding, boneMealWithRadius, instantBoneMeal, chainHarvest, instantCompost, instantTaming, instantAnimalMaturing, eatToFull);
 	}
 
 	@Override

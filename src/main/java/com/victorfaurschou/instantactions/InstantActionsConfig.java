@@ -14,58 +14,62 @@ public class InstantActionsConfig {
 
 	public static final ThreadLocal<PlayerConfig> BONE_MEAL_PLAYER_CONFIG = new ThreadLocal<>();
 
-	public static boolean instantCompost = false;
-	public static boolean instantBoneMeal = false;
-	public static boolean boneMealWithRadius = false;
-	public static boolean instantTaming = false;
-	public static boolean eatToFull = false;
-	public static boolean chainHarvest = false;
-	public static boolean doubleSeeding = false;
+	public static boolean enabled = true;
 	public static boolean doubleTilling = false;
+	public static boolean doubleSeeding = false;
+	public static boolean boneMealWithRadius = false;
+	public static boolean instantBoneMeal = false;
+	public static boolean chainHarvest = false;
+	public static boolean instantCompost = false;
+	public static boolean instantTaming = false;
 	public static boolean instantAnimalMaturing = false;
+	public static boolean eatToFull = false;
 
 	public static void load() {
 		if (!Files.exists(CONFIG_PATH)) return;
 		try {
 			Data data = GSON.fromJson(Files.readString(CONFIG_PATH), Data.class);
 			if (data == null) return;
-			instantCompost = data.instantCompost;
-			instantBoneMeal = data.instantBoneMeal;
-			boneMealWithRadius = data.boneMealWithRadius;
-			instantTaming = data.instantTaming;
-			eatToFull = data.eatToFull;
-			chainHarvest = data.chainHarvest;
-			doubleSeeding = data.doubleSeeding;
+			enabled = data.enabled;
 			doubleTilling = data.doubleTilling;
+			doubleSeeding = data.doubleSeeding;
+			boneMealWithRadius = data.boneMealWithRadius;
+			instantBoneMeal = data.instantBoneMeal;
+			chainHarvest = data.chainHarvest;
+			instantCompost = data.instantCompost;
+			instantTaming = data.instantTaming;
 			instantAnimalMaturing = data.instantAnimalMaturing;
+			eatToFull = data.eatToFull;
 		} catch (IOException ignored) {}
 	}
 
 	public static void save() {
 		try {
 			Data data = new Data();
-			data.instantCompost = instantCompost;
-			data.instantBoneMeal = instantBoneMeal;
-			data.boneMealWithRadius = boneMealWithRadius;
-			data.instantTaming = instantTaming;
-			data.eatToFull = eatToFull;
-			data.chainHarvest = chainHarvest;
-			data.doubleSeeding = doubleSeeding;
+			data.enabled = enabled;
 			data.doubleTilling = doubleTilling;
+			data.doubleSeeding = doubleSeeding;
+			data.boneMealWithRadius = boneMealWithRadius;
+			data.instantBoneMeal = instantBoneMeal;
+			data.chainHarvest = chainHarvest;
+			data.instantCompost = instantCompost;
+			data.instantTaming = instantTaming;
 			data.instantAnimalMaturing = instantAnimalMaturing;
+			data.eatToFull = eatToFull;
 			Files.writeString(CONFIG_PATH, GSON.toJson(data));
 		} catch (IOException ignored) {}
 	}
 
 	private static class Data {
-		boolean instantCompost = false;
-		boolean instantBoneMeal = false;
-		boolean boneMealWithRadius = false;
-		boolean instantTaming = false;
-		boolean eatToFull = false;
-		boolean chainHarvest = false;
-		boolean doubleSeeding = false;
+		boolean enabled = true;
 		boolean doubleTilling = false;
+		boolean doubleSeeding = false;
+		boolean boneMealWithRadius = false;
+		boolean instantBoneMeal = false;
+		boolean chainHarvest = false;
+		boolean instantCompost = false;
+		boolean instantTaming = false;
 		boolean instantAnimalMaturing = false;
+		boolean eatToFull = false;
 	}
 }

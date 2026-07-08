@@ -1,0 +1,34 @@
+{
+  "config.instant-actions.title": "Instant Actions",
+  "config.instant-actions.category.farming": "Farming",
+  "config.instant-actions.category.animals": "Animals",
+  "config.instant-actions.category.food": "Food",
+  "config.instant-actions.disabled_warning": "Instant Actions is currently disabled.\nRun /instant-actions enable true in chat to turn it back on.",
+
+  "config.instant-actions.double_tilling": "Double Tilling",
+  "config.instant-actions.double_tilling.tooltip": "Tilling a block also tills any adjacent blocks.",
+
+  "config.instant-actions.double_seeding": "Double Seeding",
+  "config.instant-actions.double_seeding.tooltip": "Planting a crop also plants the same crop on any adjacent empty plantable blocks.",
+
+  "config.instant-actions.double_bone_meal": "Double Bone Meal",
+  "config.instant-actions.double_bone_meal.tooltip": "Bonemealing a crop also applies bone meal to adjacent crops of the same type.",
+
+  "config.instant-actions.instant_crop_maturity": "Instant Crop Maturity",
+  "config.instant-actions.instant_crop_maturity.tooltip": "Grow a crop to full maturity, consuming however many bone meal are required.",
+
+  "config.instant-actions.chain_harvest": "Chain Harvest",
+  "config.instant-actions.chain_harvest.tooltip": "Breaking a fully-grown crop harvests all connected crops of the same type, within a 3-block radius.",
+
+  "config.instant-actions.instant_composting": "Instant Composting",
+  "config.instant-actions.instant_composting.tooltip": "Instantly fill a composter, consuming as many of the item as needed.",
+
+  "config.instant-actions.instant_taming": "Instant Taming",
+  "config.instant-actions.instant_taming.tooltip": "Guarantee taming on the first try.",
+
+  "config.instant-actions.instant_animal_maturing": "Instant Animal Maturing",
+  "config.instant-actions.instant_animal_maturing.tooltip": "Feeding a baby animal instantly matures it to an adult.",
+
+  "config.instant-actions.restore_hunger_instantly": "Restore Hunger Instantly",
+  "config.instant-actions.restore_hunger_instantly.tooltip": "Consuming food uses as many of the same item as needed to fully restore hunger."
+}

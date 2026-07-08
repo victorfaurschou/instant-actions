@@ -4,84 +4,103 @@ import com.victorfaurschou.instantactions.InstantActionsConfig;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.AlertScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
 public class ClothConfigScreen {
 
+	private static Component tip(String key) {
+		return Component.translatable("config.instant-actions." + key + ".tooltip");
+	}
+
 	public static Screen create(Screen parent) {
+		if (!InstantActionsConfig.enabled) {
+			return new AlertScreen(
+				() -> Minecraft.getInstance().gui.setScreen(parent),
+				Component.translatable("config.instant-actions.title"),
+				Component.translatable("config.instant-actions.disabled_warning")
+			);
+		}
+
 		ConfigBuilder builder = ConfigBuilder.create()
 			.setParentScreen(parent)
-			.setTitle(Component.literal("Instant Actions"))
+			.setTitle(Component.translatable("config.instant-actions.title"))
 			.setSavingRunnable(() -> {
 				InstantActionsConfig.save();
 				InstantActionsClient.sendConfig();
 			});
 
-		ConfigCategory general = builder.getOrCreateCategory(Component.literal("General"));
 		ConfigEntryBuilder entries = builder.entryBuilder();
 
-		general.addEntry(entries
-			.startBooleanToggle(Component.literal("Instant Bone Meal"), InstantActionsConfig.instantBoneMeal)
-			.setDefaultValue(false)
-			.setTooltip(Component.literal("Instantly grow a crop to full maturity, consuming however many bone meal are required."))
-			.setSaveConsumer(value -> InstantActionsConfig.instantBoneMeal = value)
-			.build());
+		ConfigCategory farming = builder.getOrCreateCategory(Component.translatable("config.instant-actions.category.farming"));
 
-		general.addEntry(entries
-			.startBooleanToggle(Component.literal("Bone Meal with Radius"), InstantActionsConfig.boneMealWithRadius)
+		farming.addEntry(entries
+			.startBooleanToggle(Component.translatable("config.instant-actions.double_tilling"), InstantActionsConfig.doubleTilling)
 			.setDefaultValue(false)
-			.setTooltip(Component.literal("When bonemealing a crop, also apply bone meal to adjacent crops of the same type."))
-			.setSaveConsumer(value -> InstantActionsConfig.boneMealWithRadius = value)
-			.build());
-
-		general.addEntry(entries
-			.startBooleanToggle(Component.literal("Double Tilling"), InstantActionsConfig.doubleTilling)
-			.setDefaultValue(false)
-			.setTooltip(Component.literal("Tilling a block also tills any adjacent tillable blocks."))
+			.setTooltip(tip("double_tilling"))
 			.setSaveConsumer(value -> InstantActionsConfig.doubleTilling = value)
 			.build());
 
-		general.addEntry(entries
-			.startBooleanToggle(Component.literal("Chain Harvest"), InstantActionsConfig.chainHarvest)
+		farming.addEntry(entries
+			.startBooleanToggle(Component.translatable("config.instant-actions.double_seeding"), InstantActionsConfig.doubleSeeding)
 			.setDefaultValue(false)
-			.setTooltip(Component.literal("Breaking a fully-grown crop automatically harvests all connected crops of the same type within a 3-block radius."))
-			.setSaveConsumer(value -> InstantActionsConfig.chainHarvest = value)
-			.build());
-
-		general.addEntry(entries
-			.startBooleanToggle(Component.literal("Double Seeding"), InstantActionsConfig.doubleSeeding)
-			.setDefaultValue(false)
-			.setTooltip(Component.literal("Planting a crop also plants the same crop on any adjacent empty plantable blocks."))
+			.setTooltip(tip("double_seeding"))
 			.setSaveConsumer(value -> InstantActionsConfig.doubleSeeding = value)
 			.build());
 
-		general.addEntry(entries
-			.startBooleanToggle(Component.literal("Instant Compost"), InstantActionsConfig.instantCompost)
+		farming.addEntry(entries
+			.startBooleanToggle(Component.translatable("config.instant-actions.double_bone_meal"), InstantActionsConfig.boneMealWithRadius)
 			.setDefaultValue(false)
-			.setTooltip(Component.literal("Instantly fill the composter with one click, consuming as many items as needed."))
+			.setTooltip(tip("double_bone_meal"))
+			.setSaveConsumer(value -> InstantActionsConfig.boneMealWithRadius = value)
+			.build());
+
+		farming.addEntry(entries
+			.startBooleanToggle(Component.translatable("config.instant-actions.instant_crop_maturity"), InstantActionsConfig.instantBoneMeal)
+			.setDefaultValue(false)
+			.setTooltip(tip("instant_crop_maturity"))
+			.setSaveConsumer(value -> InstantActionsConfig.instantBoneMeal = value)
+			.build());
+
+		farming.addEntry(entries
+			.startBooleanToggle(Component.translatable("config.instant-actions.chain_harvest"), InstantActionsConfig.chainHarvest)
+			.setDefaultValue(false)
+			.setTooltip(tip("chain_harvest"))
+			.setSaveConsumer(value -> InstantActionsConfig.chainHarvest = value)
+			.build());
+
+		farming.addEntry(entries
+			.startBooleanToggle(Component.translatable("config.instant-actions.instant_composting"), InstantActionsConfig.instantCompost)
+			.setDefaultValue(false)
+			.setTooltip(tip("instant_composting"))
 			.setSaveConsumer(value -> InstantActionsConfig.instantCompost = value)
 			.build());
 
-		general.addEntry(entries
-			.startBooleanToggle(Component.literal("Instant Taming"), InstantActionsConfig.instantTaming)
+		ConfigCategory animals = builder.getOrCreateCategory(Component.translatable("config.instant-actions.category.animals"));
+
+		animals.addEntry(entries
+			.startBooleanToggle(Component.translatable("config.instant-actions.instant_taming"), InstantActionsConfig.instantTaming)
 			.setDefaultValue(false)
-			.setTooltip(Component.literal("Guarantee taming success on the first try."))
+			.setTooltip(tip("instant_taming"))
 			.setSaveConsumer(value -> InstantActionsConfig.instantTaming = value)
 			.build());
 
-		general.addEntry(entries
-			.startBooleanToggle(Component.literal("Eat to Full"), InstantActionsConfig.eatToFull)
+		animals.addEntry(entries
+			.startBooleanToggle(Component.translatable("config.instant-actions.instant_animal_maturing"), InstantActionsConfig.instantAnimalMaturing)
 			.setDefaultValue(false)
-			.setTooltip(Component.literal("Eating food automatically consumes as many of the same item as needed to refill the hunger bar."))
-			.setSaveConsumer(value -> InstantActionsConfig.eatToFull = value)
+			.setTooltip(tip("instant_animal_maturing"))
+			.setSaveConsumer(value -> InstantActionsConfig.instantAnimalMaturing = value)
 			.build());
 
-		general.addEntry(entries
-			.startBooleanToggle(Component.literal("Instant Animal Maturing"), InstantActionsConfig.instantAnimalMaturing)
+		ConfigCategory food = builder.getOrCreateCategory(Component.translatable("config.instant-actions.category.food"));
+
+		food.addEntry(entries
+			.startBooleanToggle(Component.translatable("config.instant-actions.restore_hunger_instantly"), InstantActionsConfig.eatToFull)
 			.setDefaultValue(false)
-			.setTooltip(Component.literal("Feeding a baby animal instantly matures it to an adult."))
-			.setSaveConsumer(value -> InstantActionsConfig.instantAnimalMaturing = value)
+			.setTooltip(tip("restore_hunger_instantly"))
+			.setSaveConsumer(value -> InstantActionsConfig.eatToFull = value)
 			.build());
 
 		return builder.build();

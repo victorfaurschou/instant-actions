@@ -1,5 +1,6 @@
 package com.victorfaurschou.instantactions.client;
 
+import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.victorfaurschou.instantactions.InstantActionsConfig;
 import com.victorfaurschou.instantactions.network.ConfigSyncPayload;
 import net.fabricmc.api.ClientModInitializer;
@@ -33,6 +34,18 @@ public class InstantActionsClient implements ClientModInitializer {
 						mc.execute(() -> mc.gui.setScreen(ClothConfigScreen.create(null)));
 						return 1;
 					}))
+				.then(ClientCommands.literal("enable")
+					.then(ClientCommands.argument("value", BoolArgumentType.bool())
+						.executes(ctx -> {
+							boolean value = BoolArgumentType.getBool(ctx, "value");
+							InstantActionsConfig.enabled = value;
+							InstantActionsConfig.save();
+							sendConfig();
+							ctx.getSource().sendFeedback(Component.literal(
+								"[Instant Actions] " + (value ? "enabled" : "disabled")
+							));
+							return 1;
+						})))
 				.then(ClientCommands.literal("version")
 					.executes(ctx -> {
 						String version = FabricLoader.getInstance()
@@ -47,15 +60,16 @@ public class InstantActionsClient implements ClientModInitializer {
 	public static void sendConfig() {
 		if (!ClientPlayNetworking.canSend(ConfigSyncPayload.TYPE)) return;
 		ClientPlayNetworking.send(new ConfigSyncPayload(
-			InstantActionsConfig.instantCompost,
-			InstantActionsConfig.instantBoneMeal,
-			InstantActionsConfig.boneMealWithRadius,
-			InstantActionsConfig.instantTaming,
-			InstantActionsConfig.eatToFull,
-			InstantActionsConfig.chainHarvest,
-			InstantActionsConfig.doubleSeeding,
+			InstantActionsConfig.enabled,
 			InstantActionsConfig.doubleTilling,
-			InstantActionsConfig.instantAnimalMaturing
+			InstantActionsConfig.doubleSeeding,
+			InstantActionsConfig.boneMealWithRadius,
+			InstantActionsConfig.instantBoneMeal,
+			InstantActionsConfig.chainHarvest,
+			InstantActionsConfig.instantCompost,
+			InstantActionsConfig.instantTaming,
+			InstantActionsConfig.instantAnimalMaturing,
+			InstantActionsConfig.eatToFull
 		));
 	}
 }

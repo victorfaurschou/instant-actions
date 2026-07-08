@@ -1,13 +1,13 @@
 package com.victorfaurschou.instantactions;
 
 public record PlayerConfig(
-	boolean instantCompost,
-	boolean instantBoneMeal,
-	boolean boneMealWithRadius,
-	boolean instantTaming,
-	boolean eatToFull,
-	boolean chainHarvest,
-	boolean doubleSeeding,
 	boolean doubleTilling,
-	boolean instantAnimalMaturing
+	boolean doubleSeeding,
+	boolean boneMealWithRadius,
+	boolean instantBoneMeal,
+	boolean chainHarvest,
+	boolean instantCompost,
+	boolean instantTaming,
+	boolean instantAnimalMaturing,
+	boolean eatToFull
 ) {}

@@ -15,9 +15,13 @@ public class InstantActions implements ModInitializer {
 
 		PayloadTypeRegistry.serverboundPlay().register(ConfigSyncPayload.TYPE, ConfigSyncPayload.CODEC);
 
-		ServerPlayNetworking.registerGlobalReceiver(ConfigSyncPayload.TYPE, (payload, context) ->
-			PlayerConfigStore.set(context.player().getUUID(), payload.toPlayerConfig())
-		);
+		ServerPlayNetworking.registerGlobalReceiver(ConfigSyncPayload.TYPE, (payload, context) -> {
+			if (payload.enabled()) {
+				PlayerConfigStore.set(context.player().getUUID(), payload.toPlayerConfig());
+			} else {
+				PlayerConfigStore.remove(context.player().getUUID());
+			}
+		});
 
 		ServerPlayConnectionEvents.DISCONNECT.register((handler, server) ->
 			PlayerConfigStore.remove(handler.player.getUUID())
