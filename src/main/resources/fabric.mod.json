@@ -3,7 +3,7 @@
 	"id": "instant-actions",
 	"version": "${version}",
 	"name": "Instant Actions",
-	"description": "Adds toggles for performing repetitive actions instantly.",
+	"description": "Adds toggles to reduce or simplify repetitive gameplay mechanics, making common interactions quicker and less repetitive.",
 	"authors": [
 		"medicalwhiskey"
 	],
